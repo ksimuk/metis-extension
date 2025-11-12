@@ -4,7 +4,18 @@ window.codioDashboardApi.courses.list.addNewCourseButtonOption('upload', 'Upload
 
 })
 
-function showUploadDialog() {
+async function showUploadDialog() {
+  //load UserInfo
+  const userInfo = await window.codioDashboardApi.getUserInfo()
+  console.log('User Info:', userInfo)
+  const orgsInfo = await window.codioDashboardApi.getOrganizations()
+  console.log('Organizations Info:', orgsInfo)
+
+  const supportedOrgsMap = {}
+  orgsInfo.forEach(org => {
+    supportedOrgsMap[org.id] = org.details.name
+  })
+  console.log('Supported Organizations Map:', supportedOrgsMap)
   // Create overlay
   const overlay = document.createElement('div');
   overlay.style.position = 'fixed';
@@ -44,8 +55,13 @@ function showUploadDialog() {
   closeBtn.onclick = () => document.body.removeChild(overlay);
 
   // Iframe
+
+  // get domain
+  const domain = window.location.hostname.split('.').slice(-2).join('.');
+
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://metis.codio.com/static/test_client.html';
+  iframe.src = 'https://metis.' + domain + '/static/test_client.html?user=' + encodeURIComponent(userInfo.id) +
+               '&orgs=' + encodeURIComponent(JSON.stringify(supportedOrgsMap));
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = 'none';
