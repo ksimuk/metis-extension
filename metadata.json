@@ -1,0 +1,8 @@
+{
+  "name": "Metis integration Helper",
+  "type": "helper",
+  "properties": {
+    "user_type": "all",
+    "component": "dashboard"
+  }
+}
