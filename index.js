@@ -1,6 +1,7 @@
 // create button
 window.codioDashboardApi.courses.list.addNewCourseButtonOption('upload', 'Upload', () => {
   showUploadDialog()
+
 })
 
 function showUploadDialog() {

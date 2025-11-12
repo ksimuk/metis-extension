@@ -2,7 +2,7 @@
   "name": "Metis integration Helper",
   "type": "helper",
   "properties": {
-    "user_type": "all",
+    "user_type": "instructor",
     "component": "dashboard"
   }
 }
