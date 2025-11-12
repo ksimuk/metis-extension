@@ -49,7 +49,7 @@ async function showUploadDialog() {
   closeBtn.style.right = '24px';
   closeBtn.style.fontSize = '2rem';
   closeBtn.style.background = 'transparent';
-  closeBtn.style.color = '#fff';
+  closeBtn.style.color = '#888';
   closeBtn.style.border = 'none';
   closeBtn.style.cursor = 'pointer';
   closeBtn.onclick = () => document.body.removeChild(overlay);
