@@ -60,7 +60,7 @@ async function showUploadDialog() {
   const domain = window.location.hostname.split('.').slice(-2).join('.');
 
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://metis.' + domain + '/static/test_client.html?user=' + encodeURIComponent(userInfo.id) +
+  iframe.src = 'https://metis.' + domain + '/static/client.html?user=' + encodeURIComponent(userInfo.id) +
                '&orgs=' + encodeURIComponent(JSON.stringify(supportedOrgsMap));
   iframe.style.width = '100%';
   iframe.style.height = '100%';
